@@ -136,9 +136,10 @@ TheWildEye/
 ├── whois.py
 │
 └── wordlists/
-    ├── rockyou.txt ( Download Link - https://weakpass.com/download/90/rockyou.txt.gz )
+    ├── rockyou.txt 
     └── common.txt
 ```
+rockyou.txt Download Link - ( Download Link - https://weakpass.com/download/90/rockyou.txt.gz )
 
 ## 👨‍💻 Author
 **Vyom Nagpal**  
