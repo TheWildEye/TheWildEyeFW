@@ -136,7 +136,7 @@ TheWildEye/
 ├── whois.py
 │
 └── wordlists/
-    ├── rockyou.txt
+    ├── rockyou.txt ( Download Link - https://weakpass.com/download/90/rockyou.txt.gz )
     └── common.txt
 ```
 
