@@ -1,8 +1,8 @@
-# � TheWildEye
+# 🐯 TheWildEye
 
 <div align="center">
 
-**Unified Reconnaissance & OSINT Framework**
+# **Unified Reconnaissance & OSINT Framework**
 
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
 [![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20Windows%20%7C%20Termux-lightgrey.svg)](#)
