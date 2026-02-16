@@ -1,126 +1,188 @@
-# 🐯 TheWildEye  
-### Unified Reconnaissance & OSINT Framework  
-**Developer:** Vyom Nagpal
+# � TheWildEye
+
+<div align="center">
+
+**Unified Reconnaissance & OSINT Framework**
+
+[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
+[![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20Windows%20%7C%20Termux-lightgrey.svg)](#)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](#)
+
+*Fast, automated reconnaissance for penetration testing, bug bounty hunting, and OSINT*
+
+[Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [Modules](#-modules) • [Cross-Platform](#-cross-platform)
+
+</div>
 
 ---
 
-## ⚡ Overview
+## 📋 Overview
 
-TheWildEye is a **Unified Reconnaissance and OSINT Framework**  
-It unifies multiple offensive security tools into a single cross-platform command-line interface, enabling fast and automated reconnaissance for:
+**TheWildEye** is a unified reconnaissance and OSINT framework that consolidates multiple offensive security tools into a single cross-platform command-line interface.
 
-- Penetration Testing  
-- Bug Bounty Recon  
-- Threat Intelligence  
-- OSINT
-- Red Teaming
+### Use Cases
+- 🎯 Penetration Testing
+- 💰 Bug Bounty Reconnaissance
+- 🔍 Threat Intelligence
+- 🕵️ OSINT Investigations
+- 🔴 Red Team Operations
 
-The entire framework runs on **Kali Linux, ParrotOS, Ubuntu, Windows 10/11, and Termux** without modification.
+### Platform Support
+Runs natively on **Kali Linux, ParrotOS, Ubuntu, Windows 10/11, and Termux** without modification.
 
 ---
 
 ## ⚡ Features
 
-### 1. 🕵️ TigerCrawler – Email Intelligence Harvester  
-Source: `TigerCrawler.py`  
-- Multithreaded email-focused crawler  
-- Extracts valid email patterns using strict regex  
-- Filters image-like false positives  
-- Crawls up to 100 URLs using parallel workers  
-- Normalizes absolute & relative URLs  
-- Real-time URL processing feed  
-- Uses persistent HTTP sessions for improved speed
+### 🕵️ **TigerCrawler** – Email Intelligence Harvester
+*Source: `TigerCrawler.py`*
+
+- Multithreaded email-focused web crawler
+- Strict regex validation for email extraction
+- Filters false positives (image URLs, etc.)
+- Crawls up to 100 URLs with parallel workers
+- URL normalization (absolute & relative)
+- Real-time processing feed
+- Persistent HTTP sessions for speed
 
 ---
 
-### 2. 🐅 TigerHunt – Directory & File Bruteforcer  
-Source: `tigbuster.py`  
-- High-speed multithreaded directory enumeration  
-- Live ETA, status tracking, and colored output
-- Detects 200/301/302/403/404 and other statuses
-- Redirect handling and redirecting links
-- Uses `wordlists/common.txt` or personal dictionary for directory brute-force  
-- Final tabular results for discovered directories  
-- Clean CLI optimized for reconnaissance workflows
+### � **TigerHunt** – Directory & File Bruteforcer
+*Source: `tigbuster.py`*
+
+- High-speed multithreaded enumeration
+- Live ETA and status tracking
+- Detects `200`, `301`, `302`, `403`, `404` status codes
+- Redirect handling and link extraction
+- Custom wordlist support (`wordlists/common.txt`)
+- Tabular result output
+- Clean CLI interface
 
 ---
 
-### 3. 🔎 TigerWP – WordPress Recon Scanner  
-Source: `wp_enum.py`  
-- Detects exposed REST API users  
-- Extracts meta tags, OG tags, authors, JSON-LD  
-- Identifies themes and plugins via HTML path detection  
-- Parses `style.css` for theme metadata  
-- Fetches `robots.txt` and common sitemap locations  
-- Extracts SSL CN & SAN details automatically  
-- Useful for WordPress footprinting during recon
+### 🔎 **TigerWP** – WordPress Reconnaissance Scanner
+*Source: `wp_enum.py`*
+
+- REST API user enumeration
+- Meta tag extraction (OG tags, JSON-LD)
+- Theme and plugin detection via HTML paths
+- Parses `style.css` for theme metadata
+- Fetches `robots.txt` and sitemaps
+- SSL certificate analysis (CN & SAN)
+- WordPress footprinting automation
 
 ---
 
-### 4. 🌐 WHOIS Recon Engine  
-Source: `whois.py`  
-- Multi-server WHOIS querying (with referral follow-up)  
-- Extracts domain registrar data, expiry, nameservers  
-- Retrieves A and AAAA DNS records  
-- Performs reverse DNS lookups  
-- Extracts SSL certificates (CN and SAN)  
+### 🌐 **WHOIS Recon Engine**
+*Source: `whois.py`*
+
+- Multi-server WHOIS queries with referral follow-up
+- Domain registrar, expiry, and nameserver extraction
+- A and AAAA DNS record retrieval
+- Reverse DNS lookups
+- SSL certificate extraction (CN and SAN)
 
 ---
 
-### 5. 👨🏻‍💻 TheWildEye Launcher  
-Source: `TheWildEye.py`  
-- Unified launcher for all modules  
-- Detects missing scripts before execution  
-- Executes tools via Python subprocess  
-- Modern ANSI banner and clean interface  
-- Fully cross-platform architecture
+### � **WAFHunter** – Web Application Firewall Detector
+*Source: `firewall.py`*
+
+- Multi-vendor WAF detection (Cloudflare, AWS WAF, Fortinet, Sophos)
+- Active HTTP probing with malicious payloads (XSS, SQLi)
+- Passive SSL/TLS certificate analysis
+- Weighted scoring algorithm for accuracy
+- Detects suspicious status codes (403, 406, 429, 501, 503)
+- DNS resolution and certificate SAN extraction
 
 ---
 
-## 🛠️ Installation
+### �👨‍💻 **TheWildEye Launcher**
+*Source: `TheWildEye.py`*
 
-### Requirements
-- Python 3.8+  
+- Unified module launcher
+- Pre-execution script detection
+- Python subprocess execution
+- Modern ANSI banner
+- Cross-platform architecture
+
+---
+
+## �️ Installation
+
+### Prerequisites
+- Python 3.8 or higher
 - pip package manager
 
 ### Install Dependencies
+```bash
+pip install -r requirements.txt
 ```
-pip install requests bs4 lxml
+
+Or install manually:
+```bash
+pip install requests beautifulsoup4 lxml
 ```
 
 ### Clone the Repository
-```
-git clone https://github.com/TheWildEye/TheWildEye
+```bash
+git clone https://github.com/TheWildEye/TheWildEye.git
 cd TheWildEye
 ```
 
 ---
 
-## ⚡ Usage
+## 💻 Usage
 
-### Launch the Framework
-```
+### Quick Start
+
+Run the unified launcher to access all modules:
+
+**Windows (CMD/PowerShell):**
+```cmd
 python TheWildEye.py
 ```
 
-### Run Tools Individually
+**Linux/macOS/Termux:**
+```bash
+python3 TheWildEye.py
 ```
-python TigerCrawler.py
-python tigbuster.py
-python wp_enum.py
-python whois.py
+
+The launcher will present a menu where you can select any module:
+```
+1) TheCrawler      - Email Intelligence Harvester
+2) DirHunter       - Directory & File Bruteforcer  
+3) WPHunter        - WordPress Recon Scanner
+4) WhoisHunt       - WHOIS Recon Engine
+5) WAFHunter       - WAF Detection Tool
+0) Exit
+```
+
+### Advanced: Running Modules Directly
+
+For advanced users, modules can be run independently:
+```bash
+python TigerCrawler.py    # Email Harvester
+python tigbuster.py       # Directory Bruteforcer
+python wp_enum.py         # WordPress Scanner
+python whois.py           # WHOIS Recon
+python firewall.py        # WAF Detector
 ```
 
 ---
 
-## 💻 Cross-Platform Support
+## 🌍 Cross-Platform
 
 Fully supported operating systems:
-- Linux (Kali, ParrotOS, Ubuntu)  
-- Windows 10/11  
-- Termux (Android)
 
-The project uses relative paths and Python standard libraries, ensuring OS independence.
+| OS | Status |
+|---|---|
+| **Kali Linux** | ✅ Native |
+| **ParrotOS** | ✅ Native |
+| **Ubuntu** | ✅ Native |
+| **Windows 10/11** | ✅ Native |
+| **Termux (Android)** | ✅ Native |
+
+Uses relative paths and Python standard libraries for OS independence.
 
 ---
 
@@ -129,18 +191,56 @@ The project uses relative paths and Python standard libraries, ensuring OS indep
 ```
 TheWildEye/
 │
-├── TheWildEye.py
-├── TigerCrawler.py
-├── tigbuster.py
-├── wp_enum.py
-├── whois.py
+├── TheWildEye.py          # Main launcher
+├── TigerCrawler.py        # Email harvester
+├── tigbuster.py           # Directory bruteforcer
+├── wp_enum.py             # WordPress scanner
+├── whois.py               # WHOIS engine
+├── firewall.py            # WAF detector
+├── DirectCrawler.py       # Alternative email crawler
 │
 └── wordlists/
-    ├── rockyou.txt 
-    └── common.txt
+    ├── common.txt         # Directory wordlist
+    └── rockyou.txt        # Password list
 ```
-rockyou.txt Download Link - ( Download Link - https://weakpass.com/download/90/rockyou.txt.gz )
+
+### Wordlist Downloads
+
+**RockYou.txt** (required for some modules):
+```bash
+wget https://weakpass.com/download/90/rockyou.txt.gz
+gunzip rockyou.txt.gz
+mv rockyou.txt wordlists/
+```
+---
+
+## ⚠️ Legal Disclaimer
+
+**For authorized security testing only.**
+
+This framework is designed for legitimate penetration testing, bug bounty hunting, and authorized security research. Users must:
+
+- ✅ Only test systems you own or have explicit written permission to test
+- ✅ Comply with all local and international laws
+- ✅ Respect rate limits and terms of service
+- ❌ Never use for unauthorized access or malicious purposes
+
+**The author is not responsible for misuse of this tool.**
+
+---
 
 ## 👨‍💻 Author
+
 **Vyom Nagpal**  
-Cyber Security Researcher & Enthusiast
+*Cyber Security Researcher & Enthusiast*
+
+---
+
+
+<div align="center">
+
+**Developed for the security community**
+
+⭐ Star this repository if you find it useful!
+
+</div>
