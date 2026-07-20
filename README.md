@@ -34,8 +34,8 @@ Runs natively on **Kali Linux, ParrotOS, Ubuntu, Windows 10/11, and Termux** wit
 
 ## ⚡ Features
 
-### 🕵️ **TigerCrawler** – Email Intelligence Harvester
-*Source: `TigerCrawler.py`*
+### 🕵️ **MailHunter** – Email Intelligence Harvester
+*Source: `MailHunter.py`*
 
 - Multithreaded email-focused web crawler
 - Strict regex validation for email extraction
@@ -47,8 +47,8 @@ Runs natively on **Kali Linux, ParrotOS, Ubuntu, Windows 10/11, and Termux** wit
 
 ---
 
-### � **TigerHunt** – Directory & File Bruteforcer
-*Source: `tigbuster.py`*
+### 📂 **DirHunter** – Directory & File Bruteforcer
+*Source: `DirHunter.py`*
 
 - High-speed multithreaded enumeration
 - Live ETA and status tracking
@@ -60,8 +60,8 @@ Runs natively on **Kali Linux, ParrotOS, Ubuntu, Windows 10/11, and Termux** wit
 
 ---
 
-### 🔎 **TigerWP** – WordPress Reconnaissance Scanner
-*Source: `wp_enum.py`*
+### 🔎 **WPHunter** – WordPress Reconnaissance Scanner
+*Source: `WPHunter.py`*
 
 - REST API user enumeration
 - Meta tag extraction (OG tags, JSON-LD)
@@ -73,8 +73,8 @@ Runs natively on **Kali Linux, ParrotOS, Ubuntu, Windows 10/11, and Termux** wit
 
 ---
 
-### 🌐 **WHOIS Recon Engine**
-*Source: `whois.py`*
+### 🌐 **InfoHunter** - WHOIS Recon Engine
+*Source: `InfoHunter.py`*
 
 - Multi-server WHOIS queries with referral follow-up
 - Domain registrar, expiry, and nameserver extraction
@@ -84,8 +84,8 @@ Runs natively on **Kali Linux, ParrotOS, Ubuntu, Windows 10/11, and Termux** wit
 
 ---
 
-### � **WAFHunter** – Web Application Firewall Detector
-*Source: `firewall.py`*
+### 🛡️ **WAFHunter** – Web Application Firewall Detector
+*Source: `WAFHunter.py`*
 
 - Multi-vendor WAF detection (Cloudflare, AWS WAF, Fortinet, Sophos)
 - Active HTTP probing with malicious payloads (XSS, SQLi)
@@ -125,8 +125,8 @@ pip install requests beautifulsoup4 lxml
 
 ### Clone the Repository
 ```bash
-git clone https://github.com/TheWildEye/TheWildEye.git
-cd TheWildEye
+git clone https://github.com/TheWildEye/TheWildEyeFW.git
+cd TheWildEyeFW
 ```
 
 ---
@@ -149,10 +149,10 @@ python3 TheWildEye.py
 
 The launcher will present a menu where you can select any module:
 ```
-1) TheCrawler      - Email Intelligence Harvester
+1) MailHunter      - Email Intelligence Harvester
 2) DirHunter       - Directory & File Bruteforcer  
 3) WPHunter        - WordPress Recon Scanner
-4) WhoisHunt       - WHOIS Recon Engine
+4) InfoHunter      - WHOIS Recon Engine
 5) WAFHunter       - WAF Detection Tool
 0) Exit
 ```
@@ -161,11 +161,11 @@ The launcher will present a menu where you can select any module:
 
 For advanced users, modules can be run independently:
 ```bash
-python TigerCrawler.py    # Email Harvester
-python tigbuster.py       # Directory Bruteforcer
-python wp_enum.py         # WordPress Scanner
-python whois.py           # WHOIS Recon
-python firewall.py        # WAF Detector
+python MailHunter.py      # Email Harvester
+python DirHunter.py       # Directory Bruteforcer
+python WPHunter.py        # WordPress Scanner
+python InfoHunter.py      # WHOIS Recon
+python WAFHunter.py       # WAF Detector
 ```
 
 ---
@@ -189,29 +189,20 @@ Uses relative paths and Python standard libraries for OS independence.
 ## 📁 Project Structure
 
 ```
-TheWildEye/
+TheWildEyeFW/
 │
 ├── TheWildEye.py          # Main launcher
-├── TigerCrawler.py        # Email harvester
-├── tigbuster.py           # Directory bruteforcer
-├── wp_enum.py             # WordPress scanner
-├── whois.py               # WHOIS engine
-├── firewall.py            # WAF detector
-├── DirectCrawler.py       # Alternative email crawler
+├── MailHunter.py          # Email harvester
+├── DirHunter.py           # Directory bruteforcer
+├── WPHunter.py            # WordPress scanner
+├── InfoHunter.py          # WHOIS engine
+├── WAFHunter.py           # WAF detector
+├── requirements.txt       # Python dependencies
 │
 └── wordlists/
-    ├── common.txt         # Directory wordlist
-    └── rockyou.txt        # Password list
+    └── common.txt         # Directory wordlist
 ```
 
-### Wordlist Downloads
-
-**RockYou.txt** (required for some modules):
-```bash
-wget https://weakpass.com/download/90/rockyou.txt.gz
-gunzip rockyou.txt.gz
-mv rockyou.txt wordlists/
-```
 ---
 
 ## ⚠️ Legal Disclaimer

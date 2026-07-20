@@ -4,16 +4,14 @@ import subprocess
 
 HERE = os.path.abspath(os.path.dirname(__file__))
 
-TIGERCRAWLER = os.path.join(HERE, "TigerCrawler.py")
-TIGERHUNT    = os.path.join(HERE, "tigbuster.py")
-TIGERWP      = os.path.join(HERE, "wp_enum.py")
-TIGERWHOIS   = os.path.join(HERE, "whois.py")
-TIGERWAF     = os.path.join(HERE, "firewall.py")
+TIGERCRAWLER = os.path.join(HERE, "MailHunter.py")
+TIGERHUNT    = os.path.join(HERE, "DirHunter.py")
+TIGERWP      = os.path.join(HERE, "WPHunter.py")
+TIGERWHOIS   = os.path.join(HERE, "InfoHunter.py")
+TIGERWAF     = os.path.join(HERE, "WAFHunter.py")
 
 PY = sys.executable 
 
-def file_exists(path):
-    return os.path.isfile(path)
 
 def run_subprocess(args):
     try:
@@ -24,31 +22,31 @@ def run_subprocess(args):
         print(f"[!] Failed to run: {e}")
 
 def run_tigercrawler():
-    if not file_exists(TIGERCRAWLER):
+    if not os.path.isfile(TIGERCRAWLER):
         print(f"[!] Missing: {TIGERCRAWLER}")
         return
     run_subprocess([PY, TIGERCRAWLER])
 
 def run_tigerhunt():
-    if not file_exists(TIGERHUNT):
+    if not os.path.isfile(TIGERHUNT):
         print(f"[!] Missing: {TIGERHUNT}")
         return
     run_subprocess([PY, TIGERHUNT])
 
 def run_tigerwp():
-    if not file_exists(TIGERWP):
+    if not os.path.isfile(TIGERWP):
         print(f"[!] Missing: {TIGERWP}")
         return
     run_subprocess([PY, TIGERWP])
 
 def run_tigerwhois():
-    if not file_exists(TIGERWHOIS):
+    if not os.path.isfile(TIGERWHOIS):
         print(f"[!] Missing: {TIGERWHOIS}")
         return
     run_subprocess([PY, TIGERWHOIS])
 
 def run_tigerwaf():
-    if not file_exists(TIGERWAF):
+    if not os.path.isfile(TIGERWAF):
         print(f"[!] Missing: {TIGERWAF}")
         return
     run_subprocess([PY, TIGERWAF])
@@ -66,13 +64,14 @@ $$$$$$$$\ $$\                 $$\      $$\ $$\ $$\       $$\ $$$$$$$$\
                                                                       $$\   $$ |          
                                                                       \$$$$$$  |          
                                                                        \______/           
+                                                                       
         UNIFIED RECONNAISSANCE & OSINT FRAMEWORK - VYOM NAGPAL
     """ + "\033[0m")
 
-    print("\n1) TheCrawler")
+    print("\n1) MailHunter")
     print("2) DirHunter")
     print("3) WPHunter")
-    print("4) WhoisHunt")
+    print("4) InfoHunter")
     print("5) WAFHunter")
     print("0) Exit\n")
 
