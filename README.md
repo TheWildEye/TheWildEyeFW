@@ -1,237 +1,58 @@
-# 🐯 TheWildEye
+# TheWildEye
 
-<div align="center">
+Unified reconnaissance and OSINT framework. JavaScript rendering via Playwright, API endpoint discovery via browser network capture + OpenAPI + JS static analysis + pattern inference, directory discovery without wordlist bruteforce, subdomain enumeration, technology fingerprinting, WHOIS recon, WAF detection, and Google dork generation.
 
-# **Unified Reconnaissance & OSINT Framework**
+## Installation
 
-[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
-[![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20Windows%20%7C%20Termux-lightgrey.svg)](#)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](#)
-
-*Fast, automated reconnaissance for penetration testing, bug bounty hunting, and OSINT*
-
-[Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [Modules](#-modules) • [Cross-Platform](#-cross-platform)
-
-</div>
-
----
-
-## 📋 Overview
-
-**TheWildEye** is a unified reconnaissance and OSINT framework that consolidates multiple offensive security tools into a single cross-platform command-line interface.
-
-### Use Cases
-- 🎯 Penetration Testing
-- 💰 Bug Bounty Reconnaissance
-- 🔍 Threat Intelligence
-- 🕵️ OSINT Investigations
-- 🔴 Red Team Operations
-
-### Platform Support
-Runs natively on **Kali Linux, ParrotOS, Ubuntu, Windows 10/11, and Termux** without modification.
-
----
-
-## ⚡ Features
-
-### 🕵️ **MailHunter** – Email Intelligence Harvester
-*Source: `MailHunter.py`*
-
-- Multithreaded email-focused web crawler
-- Strict regex validation for email extraction
-- Filters false positives (image URLs, etc.)
-- Crawls up to 100 URLs with parallel workers
-- URL normalization (absolute & relative)
-- Real-time processing feed
-- Persistent HTTP sessions for speed
-
----
-
-### 📂 **DirHunter** – Directory & File Bruteforcer
-*Source: `DirHunter.py`*
-
-- High-speed multithreaded enumeration
-- Live ETA and status tracking
-- Detects `200`, `301`, `302`, `403`, `404` status codes
-- Redirect handling and link extraction
-- Custom wordlist support (`wordlists/common.txt`)
-- Tabular result output
-- Clean CLI interface
-
----
-
-### 🔎 **WPHunter** – WordPress Reconnaissance Scanner
-*Source: `WPHunter.py`*
-
-- REST API user enumeration
-- Meta tag extraction (OG tags, JSON-LD)
-- Theme and plugin detection via HTML paths
-- Parses `style.css` for theme metadata
-- Fetches `robots.txt` and sitemaps
-- SSL certificate analysis (CN & SAN)
-- WordPress footprinting automation
-
----
-
-### 🌐 **InfoHunter** - WHOIS Recon Engine
-*Source: `InfoHunter.py`*
-
-- Multi-server WHOIS queries with referral follow-up
-- Domain registrar, expiry, and nameserver extraction
-- A and AAAA DNS record retrieval
-- Reverse DNS lookups
-- SSL certificate extraction (CN and SAN)
-
----
-
-### 🛡️ **WAFHunter** – Web Application Firewall Detector
-*Source: `WAFHunter.py`*
-
-- Multi-vendor WAF detection (Cloudflare, AWS WAF, Fortinet, Sophos)
-- Active HTTP probing with malicious payloads (XSS, SQLi)
-- Passive SSL/TLS certificate analysis
-- Weighted scoring algorithm for accuracy
-- Detects suspicious status codes (403, 406, 429, 501, 503)
-- DNS resolution and certificate SAN extraction
-
----
-
-### �👨‍💻 **TheWildEye Launcher**
-*Source: `TheWildEye.py`*
-
-- Unified module launcher
-- Pre-execution script detection
-- Python subprocess execution
-- Modern ANSI banner
-- Cross-platform architecture
-
----
-
-## �️ Installation
-
-### Prerequisites
-- Python 3.8 or higher
-- pip package manager
-
-### Install Dependencies
-```bash
+```
 pip install -r requirements.txt
+playwright install chromium
 ```
 
-Or install manually:
-```bash
-pip install requests beautifulsoup4 lxml
+## Usage
+
+Interactive menu:
+
 ```
-
-### Clone the Repository
-```bash
-git clone https://github.com/TheWildEye/TheWildEyeFW.git
-cd TheWildEyeFW
-```
-
----
-
-## 💻 Usage
-
-### Quick Start
-
-Run the unified launcher to access all modules:
-
-**Windows (CMD/PowerShell):**
-```cmd
 python TheWildEye.py
 ```
 
-**Linux/macOS/Termux:**
-```bash
-python3 TheWildEye.py
-```
-
-The launcher will present a menu where you can select any module:
-```
-1) MailHunter      - Email Intelligence Harvester
-2) DirHunter       - Directory & File Bruteforcer  
-3) WPHunter        - WordPress Recon Scanner
-4) InfoHunter      - WHOIS Recon Engine
-5) WAFHunter       - WAF Detection Tool
-0) Exit
-```
-
-### Advanced: Running Modules Directly
-
-For advanced users, modules can be run independently:
-```bash
-python MailHunter.py      # Email Harvester
-python DirHunter.py       # Directory Bruteforcer
-python WPHunter.py        # WordPress Scanner
-python InfoHunter.py      # WHOIS Recon
-python WAFHunter.py       # WAF Detector
-```
-
----
-
-## 🌍 Cross-Platform
-
-Fully supported operating systems:
-
-| OS | Status |
-|---|---|
-| **Kali Linux** | ✅ Native |
-| **ParrotOS** | ✅ Native |
-| **Ubuntu** | ✅ Native |
-| **Windows 10/11** | ✅ Native |
-| **Termux (Android)** | ✅ Native |
-
-Uses relative paths and Python standard libraries for OS independence.
-
----
-
-## 📁 Project Structure
+Direct CLI mode:
 
 ```
-TheWildEyeFW/
-│
-├── TheWildEye.py          # Main launcher
-├── MailHunter.py          # Email harvester
-├── DirHunter.py           # Directory bruteforcer
-├── WPHunter.py            # WordPress scanner
-├── InfoHunter.py          # WHOIS engine
-├── WAFHunter.py           # WAF detector
-├── requirements.txt       # Python dependencies
-│
-└── wordlists/
-    └── common.txt         # Directory wordlist
+python TheWildEye.py <module> <target>
 ```
 
----
+Run all modules sequentially (press `s` to skip, `q` to quit):
 
-## ⚠️ Legal Disclaimer
+```
+python TheWildEye.py
+Select: 11
+```
 
-**For authorized security testing only.**
+## Modules
 
-This framework is designed for legitimate penetration testing, bug bounty hunting, and authorized security research. Users must:
+| Module | Target | Description |
+|--------|--------|-------------|
+| crawlerhunter | URL | Web crawler with Playwright JS rendering, SPA detection, form/email/API extraction |
+| dirhunter | URL | Smart directory discovery via robots.txt + sitemap + common paths. SPA false positive filter. No wordlist bruteforce |
+| apifuzzhunter | URL | API endpoint discovery via browser network capture + OpenAPI + JS analysis + pattern fuzzing |
+| jsreaphunter | URL | JavaScript static analysis: endpoints, secrets/keys, SPA routes, source maps |
+| techhunter | URL | Technology fingerprinting: CMS, frameworks, libraries via headers/cookies/HTML |
+| wphunter | URL | WordPress vulnerability scanner: user enumeration, plugin/theme detection |
+| whoishunter | Domain | WHOIS lookup, DNS A/AAAA/MX records, SSL certificate, reverse DNS |
+| wafhunter | URL | Web firewall detection via active probes and SSL fingerprinting |
+| subhunter | Domain | Subdomain enumeration via crt.sh, AlienVault OTX, UrlScan.io, DNS bruteforce |
+| dorkhunter | Domain | Google dork generator: 60 dorks across 11 categories |
 
-- ✅ Only test systems you own or have explicit written permission to test
-- ✅ Comply with all local and international laws
-- ✅ Respect rate limits and terms of service
-- ❌ Never use for unauthorized access or malicious purposes
+## Cross-Platform
 
-**The author is not responsible for misuse of this tool.**
+Windows 10/11, Kali Linux, Ubuntu, macOS, Termux. ANSI colors auto-disable on dumb terminals or when NO_COLOR is set.
 
----
+## Requirements
 
-## 👨‍💻 Author
+Python 3.8+. Run `pip install -r requirements.txt` (requests, beautifulsoup4, lxml, playwright, aiohttp, PyYAML, tqdm, colorama). Playwright Chromium required for JS rendering: `playwright install chromium`.
 
-**Vyom Nagpal**  
-*Cyber Security Researcher & Enthusiast*
+## Legal
 
----
-
-
-<div align="center">
-
-**Developed for the security community**
-
-⭐ Star this repository if you find it useful!
-
-</div>
+For authorized security testing only. Users must have explicit written permission before testing any system.

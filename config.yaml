@@ -1,0 +1,29 @@
+general:
+  timeout: 10
+  max_threads: 20
+  max_retries: 2
+  delay: 0.5
+  proxy: null
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+
+crawler:
+  max_urls: 2000
+  max_depth: 5
+  js_render: false
+  extract_emails: true
+  extract_links: true
+  extract_js: true
+  extract_forms: true
+  extract_comments: true
+  same_domain_only: true
+
+dirhunter:
+  extensions: ["php", "asp", "aspx", "jsp", "html", "txt", "xml", "json", "bak", "old", "zip", "tar.gz", "sql", "env", "conf"]
+  status_codes: [200, 301, 302, 403, 401, 500]
+
+js_reaper:
+  extract_endpoints: true
+  extract_secrets: true
+  extract_routes: true
+  fetch_sourcemaps: true
+  max_js_files: 500

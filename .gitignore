@@ -12,8 +12,9 @@ build/
 # Virtual environments
 venv/
 env/
-.env/
 .venv/
+.env
+.env.*
 
 # IDE / OS
 .vscode/
@@ -25,6 +26,9 @@ Thumbs.db
 *.log
 *.out
 
-# Sensitive / large wordlists (keep common.txt, skip rockyou)
+# Reports
+reports/
+
+# Wordlists (keep common.txt, skip heavy lists)
 wordlists/rockyou.txt
 wordlists/rockyou.txt.gz
